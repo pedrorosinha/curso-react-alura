@@ -7,10 +7,18 @@ import { ITarefa } from '../types/tarefa';
 
 function App() {
   const [tarefas, setTarefas] = useState<ITarefa[]>([]);
+  const [selecionado, setSelecionado] = useState<ITarefa>();
+
+  function selecionaTarefa(tarefaSelecionado: ITarefa) {
+    setSelecionado(tarefaSelecionado);
+  }
   return (
     <div className={style.AppStyle}>
       <Form setTarefas={setTarefas}/>
-      <List tarefas={tarefas}/>
+      <List
+        tarefas={tarefas}
+        selecionaTarefa={selecionaTarefa}
+       />
       <Timer/>
     </div>
   );
