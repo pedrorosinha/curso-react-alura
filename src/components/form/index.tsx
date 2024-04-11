@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../button";
 import style from './Form.module.scss';
 import { ITarefa } from "../../types/tarefa";
+import {v4 as uuidv4} from 'uuid';
 
 class Form extends React.Component<{
     setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
