@@ -23,7 +23,7 @@ function App() {
         tarefas={tarefas}
         selecionaTarefa={selecionaTarefa}
        />
-      <Timer/>
+      <Timer selecionado={selecionado}/>
     </div>
   );
 }
