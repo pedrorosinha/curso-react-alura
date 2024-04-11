@@ -17,7 +17,9 @@ class Form extends React.Component<{
             [
                 ...tarefasAntigas, 
                 {
-                    ...this.state
+                    ...this.state,
+                    selecionado: false,
+                    completado: false
                 }
             ]
         );
