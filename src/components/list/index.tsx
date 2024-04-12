@@ -7,7 +7,7 @@ interface Props {
     selecionaTarefa: (tarefaSelecionada: ITarefa) => void
 }
 
-function List({tarefas, selecionaTarefa}: Props) {
+function List({ tarefas, selecionaTarefa }: Props) {
     return (
         <aside className={style.listaTarefas}>
             <h2>Estudos do dia </h2>
