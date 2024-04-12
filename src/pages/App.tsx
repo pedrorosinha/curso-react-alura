@@ -14,16 +14,36 @@ function App() {
     setTarefas(tarefasAnteriores => tarefasAnteriores.map(tarefa => ({
       ...tarefa,
       selecionado: tarefa.id === tarefaSelecionado.id ? true : false
-    })))
+    })));
   }
+
+  function finalizarTarefa() {
+    if (selecionado) {
+      setSelecionado(undefined);
+      setTarefas(tarefasAnteriores => tarefasAnteriores.map(tarefa => {
+        if (tarefa.id === selecionado.id) {
+          return {
+            ...tarefa,
+            selecionado: false,
+            completado: true
+          }
+        }
+        return tarefa;
+      }))
+    }
+  }
+
   return (
     <div className={style.AppStyle}>
-      <Form setTarefas={setTarefas}/>
+      <Form setTarefas={setTarefas} />
       <List
         tarefas={tarefas}
         selecionaTarefa={selecionaTarefa}
-       />
-      <Timer selecionado={selecionado}/>
+      />
+      <Timer
+        selecionado={selecionado}
+        finalizarTarefa={finalizarTarefa}
+      />
     </div>
   );
 }
